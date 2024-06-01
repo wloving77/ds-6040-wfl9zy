@@ -1,0 +1,70 @@
+
+Question 1.1:
+
+Standard abstracted definition of Bayes Rule, The posterior distribution is equal to the Likelihood multiplied by the prior (which must be estimated) divided by the density function
+of the data (or evidence)
+
+Question 1.2:
+
+Similar to Question 1 but with a layer of abstraction removed, the denominator term which was the density function of the evidence is now expressed as an integral marginalizing away 
+the model parameters theta leaving behind just the evidence p(y).
+
+Question 1.3: 
+
+A simplification of the previous questions representation showing that the density function of the evidence is really just scaling the Likelihood * Prior term and as a result the entire 
+term is proportional to just the Likelihood multiplied by the prior.
+
+Question 2:
+
+Option 1, probabilities are only produced when the distribution is discrete, if it were to be continuous point probabilities do not exist and as a result cumulative or bounded probabilities
+would be observed through integration. Options 2 and 3 are false for the same reason Option 1 is true, point probabilities will only be produced if the prior and posterior are 
+discrete PDF's. 
+
+Question 3:
+
+Bayesians would look to optimize the Likelihood mulitipled by the Prior (where the prior is estimated using another distribution) which is effectively optimizing the Posterior probability.
+Frequentists would simply look to optimize the Likelihood without modifying "beliefs" based on the data.
+
+Question 4 (I'm just typing it out but can write it down if necessary, I am also assuming each y is independent of every other y): 
+
+π(θ|y_1..., y_n) = (p(y_n|θ,y1..., y_n-1) * π(θ|y_1..., y_n-1))/(p(y_1..., y_n-1))
+
+Given the assumption of independence, the likelihood in the numerator simplifies to p(y_n|θ)
+
+The posterior then becomes:
+
+π(θ|y_1..., y_n) = (p(y_n|θ) * π(θ|y_1..., y_n-1))/(p(y_1..., y_n-1))
+
+Using the fact that we can express the evidence as a marginalization over theta:
+
+p(y_1..., y_n-1) = ∫p(y_n|θ)*p(y_1..., y_n-1)dθ
+
+So, putting it all together:
+
+π(θ|y_1..., y_n) = (p(y_n|θ) * π(θ|y_1..., y_n-1)) / ∫p(y_n|θ)*π(y_1..., y_n-1)dθ
+
+This shows how we can leverage Bayes rule to update our parameters based on the input of new data while still accounting for the old data (while also assuming independece)
+
+Question 5:
+
+The posterior probability is an example of this, we are assuming knowledge of a random variable that we do not have (the model parameters θ).
+
+Question 6.1:
+
+Marginalization
+
+Question 6.2:
+
+Joint Probabilities, Conditioning
+
+Question 7:
+
+p(y_h|y) = ∫p(y_h,θ|y)dθ # expanding to marginalize over all possible values of theta, these are equivalent
+
+= ∫p(y_h|θ,y)*π(θ|y)dθ # here we reverse the conditional independence property
+
+= ∫L(y_h|θ)*π(θ|y)dθ # substitute Likelihood, final answer
+
+Question 8:
+
+1, 4, and 5
